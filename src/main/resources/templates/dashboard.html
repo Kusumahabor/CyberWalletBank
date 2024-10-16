@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard - CyberWallet Bank</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">CyberWallet Bank</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/transactions">Transactions</a></li>
+        <li class="nav-item"><a class="nav-link" href="/loans">Loans</a></li>
+        <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="main-container">
+    <div class="gif-section">
+        <img th:src="@{/images/transactions.gif}" alt="Banking Animation" class="gif-image">
+    </div>
+
+    <div class="content-section">
+        <div class="dashboard-container">
+            <div class="text-center mb-4">
+                <h2 th:text="'Welcome, ' + ${account.username}"></h2>
+                <h3 th:text="'Current Balance: $' + ${account.balance}"></h3>
+            </div>
+
+            <div class="account-details mb-4">
+                <h4>Account Details</h4>
+                <p><strong>Account Number:</strong> <span th:text="${account.id}"></span></p>
+                <p><strong>Account Type:</strong> Savings</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#depositForm" aria-expanded="false" aria-controls="depositForm">
+                        Deposit
+                    </button>
+                    <div class="collapse mt-3" id="depositForm">
+                        <form method="post" action="/deposit" class="form-container">
+                            <div class="form-group">
+                                <label>Amount:</label>
+                                <input type="number" class="form-control" name="amount" required />
+                            </div>
+                            <button type="submit" class="btn btn-block btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#withdrawForm" aria-expanded="false" aria-controls="withdrawForm">
+                        Withdraw
+                    </button>
+                    <div class="collapse mt-3" id="withdrawForm">
+                        <form method="post" action="/withdraw" class="form-container">
+                            <div class="form-group">
+                                <label>Amount:</label>
+                                <input type="number" class="form-control" name="amount" required />
+                            </div>
+                            <button type="submit" class="btn btn-block btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#transferForm" aria-expanded="false" aria-controls="transferForm">
+                        Transfer Money
+                    </button>
+                    <div class="collapse mt-3" id="transferForm">
+                        <form method="post" action="/transfer" class="form-container">
+                            <div class="form-group">
+                                <label>Recipient Username:</label>
+                                <input type="text" class="form-control" name="toUsername" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Amount:</label>
+                                <input type="number" class="form-control" name="amount" required />
+                            </div>
+                            <button type="submit" class="btn btn-block btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <p th:if="${error != null}" th:text="${error}" class="error text-center mt-3"></p>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 Code With CyberWallet. All rights reserved. | <a href="#" class="custom-link">Privacy Policy</a> | <a href="#" class="custom-link">Terms of Service</a></p>
+</footer>
+</body>
+</html>

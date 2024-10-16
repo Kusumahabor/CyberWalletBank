@@ -1,0 +1,85 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.scrollable-element {
+    height: 300px; /* or any fixed height */
+    overflow-y: auto;
+}
+
+.navbar-custom {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-custom a {
+    color: #ffffff !important;
+}
+
+.navbar-custom .navbar-brand {
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1000px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.table-custom {
+    background-color: #4682B4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    overflow-x: auto; /* Ensures table is responsive */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter row color */
+}
+
+.table-striped td, .table-striped th {
+    color: #ffffff; /* White text color for visibility */
+    font-weight: bold; /* Bolder text for readability */
+    padding: 15px; /* Increase padding for better spacing */
+    border-bottom: 1px solid #ffd700; /* Yellow border for rows */
+}
+
+.table-striped th {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.text-success {
+    color: #0000ff !important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px 0;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

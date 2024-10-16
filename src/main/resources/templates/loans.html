@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login - CyberWallet Bank</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/loans.css}" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">CyberWallet Bank</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/transactions">Transactions</a></li>
+            <li class="nav-item"><a class="nav-link" href="/loans">Loans</a></li>
+            <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+</nav>
+<main class="container">
+    <h3>Loan Services</h3>
+
+    <section class="loan-types">
+        <h4>Types of Loans We Offer</h4>
+
+        <div class="loan-grid">
+            <div class="loan-item" id="personal-loan">
+                <h4>Personal Loans</h4>
+                <p>Flexible loans for various personal needs.</p>
+                <p>Interest Rate: 8.99% APR</p>
+                <button onclick="showCalculator('personal')" class="calculate-btn">Calculate</button>
+            </div>
+
+            <div class="loan-item" id="auto-loan">
+                <h4>Auto Loans</h4>
+                <p>Finance your new or used vehicle.</p>
+                <p>Interest Rate: 4.49% APR</p>
+                <button onclick="showCalculator('auto')" class="calculate-btn">Calculate</button>
+            </div>
+
+            <div class="loan-item" id="home-loan">
+                <h4>Home Loans</h4>
+                <p>Realize your dream of homeownership.</p>
+                <p>Interest Rate: 3.25% APR</p>
+                <button onclick="showCalculator('home')" class="calculate-btn">Calculate</button>
+            </div>
+
+            <div class="loan-item" id="business-loan">
+                <h4>Business Loans</h4>
+                <p>Grow your business with our financing solutions.</p>
+                <p>Interest Rate: 6.75% APR</p>
+                <button onclick="showCalculator('business')" class="calculate-btn">Calculate</button>
+            </div>
+        </div>
+    </section>
+    <section class="loan-calculator" id="loan-calculator" style="display: none;">
+        <h4>Loan Calculator</h4>
+        <form id="calculator-form">
+            <div class="form-group">
+                <label for="loan-type">Loan Type:</label>
+                <select id="loan-type" required>
+                    <option value="personal">Personal Loan</option>
+                    <option value="auto">Auto Loan</option>
+                    <option value="home">Home Loan</option>
+                    <option value="business">Business Loan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="loan-amount">Loan Amount ($):</label>
+                <input type="number" id="loan-amount" required min="1000" step="1000">
+            </div>
+            <div class="form-group">
+                <label for="loan-term">Loan Term (years):</label>
+                <input type="number" id="loan-term" required min="1" max="30">
+            </div>
+            <div class="form-group">
+                <label for="interest-rate">Interest Rate:</label>
+                <input type="text" id="interest-rate" readonly>
+            </div>
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="calculation-result" style="display: none;">
+            <h3>Calculation Results</h3>
+            <p>Monthly Payment: <span id="monthly-payment"></span></p>
+            <p>Total Interest: <span id="total-interest"></span></p>
+            <p>Total Amount to Repay: <span id="total-repayment"></span></p>
+        </div>
+    </section>
+
+    <section class="loan-application">
+        <h4>Ready to Apply?</h4>
+        <p>Start your loan application process today and take the first step towards achieving your financial goals.</p>
+        <a th:href="@{/apply-loan}" class="btn btn-primary">Apply Now</a>
+    </section>
+</main>
+
+<script th:src="@{/js/loan-calculator.js}"></script>
+</body>
+</html>
