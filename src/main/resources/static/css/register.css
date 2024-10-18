@@ -1,6 +1,7 @@
 body {
     margin-top: 100px;
     margin-bottom: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .scrollable-element {
