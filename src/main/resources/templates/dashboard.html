@@ -25,11 +25,13 @@
     <div class="content-section">
         <div class="dashboard-container">
             <div class="text-center mb-4">
-                <h2 th:text="'Welcome, ' + ${account.username}"></h2>
-                <h3 th:text="'Current Balance: $' + ${account.balance}"></h3>
+                <h2 th:if="${user != null}" th:text="'Welcome, ' + ${user.username}"></h2>
+                <h2 th:unless="${user != null}">Welcome, Guest</h2>
+                <h3 th:if="${account != null}" th:text="'Current Balance: $' + ${account.balance}"></h3>
+                <h3 th:unless="${account != null}">Account information not available</h3>
             </div>
 
-            <div class="account-details mb-4">
+            <div class="account-details mb-4" th:if="${account != null}">
                 <h4>Account Details</h4>
                 <p><strong>Account Number:</strong> <span th:text="${account.id}"></span></p>
                 <p><strong>Account Type:</strong> Savings</p>

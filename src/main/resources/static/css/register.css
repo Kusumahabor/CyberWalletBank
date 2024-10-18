@@ -1,11 +1,11 @@
-html {
-    scroll-behavior: smooth;
+body {
+    margin-top: 100px;
+    margin-bottom: 200px;
 }
 
-body {
-    background: url("../images/bank_background.jpg") no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+.scrollable-element {
+    height: 100%;
+    overflow-y: auto;
 }
 
 .navbar-custom {
@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-    max-width: 450px;
+    max-width: 650px;
     padding: 30px;
     background-color: #4682B4;
     border-radius: 10px;
@@ -33,6 +33,7 @@ body {
     position: relative;
     text-align: center;
     margin-top: 100px;
+    margin-bottom: 200px;
 }
 
 .container h2 {
@@ -48,14 +49,12 @@ body {
 
 .form-group input {
     border: 1px solid #ffd700;
-    background-color: #333;
-    color: #ffffff;
 }
 
 .btn {
-    background-color: #ffd700;
+    background-color: rgba(0, 0, 0, 0.7);
     border: none;
-    color: black;
+    color: #ffffff;
     transition: background-color 0.3s ease;
 }
 

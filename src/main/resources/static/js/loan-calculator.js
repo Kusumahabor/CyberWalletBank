@@ -47,3 +47,4 @@ function calculateLoan() {
 
 // Initialize the calculator
 updateInterestRate();
+

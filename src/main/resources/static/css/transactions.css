@@ -11,7 +11,7 @@ body {
 }
 
 .scrollable-element {
-    height: 300px; /* or any fixed height */
+    height: 300px;
     overflow-y: auto;
 }
 

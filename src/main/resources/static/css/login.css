@@ -23,17 +23,6 @@ body {
     font-weight: bold;
 }
 
-.navbar-custom .social-icons a {
-    color: #ffffff;
-    margin-left: 15px;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.navbar-custom .social-icons a:hover {
-    color: #ffd700;
-}
-
 .container {
     margin-top: 100px;
     max-width: 450px;
@@ -58,11 +47,10 @@ body {
 
 .form-group input {
     border: 1px solid #ffd700;
-    color: #ffffff;
 }
 
 .btn {
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.7);
     border: none;
     color: #ffffff;
     transition: background-color 0.3s ease
@@ -93,6 +81,12 @@ body {
     width: 100%;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-link {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 @keyframes shake {

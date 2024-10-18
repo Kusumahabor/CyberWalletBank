@@ -13,40 +13,28 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
-public class Account implements UserDetails {
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String password;
     private BigDecimal balance;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     @OneToMany(mappedBy = "account")
     private List<Transaction> transactions;
 
-    @Transient
-    private Collection<? extends GrantedAuthority> authorities;
-
-    public Account(String username, String password, BigDecimal balance, List<Transaction> transactions, Collection<? extends GrantedAuthority> authorities) {
-        this.username = username;
-        this.password = password;
+    public Account(User user, BigDecimal balance, List<Transaction> transactions) {
+        this.user = user;
         this.balance = balance;
         this.transactions = transactions;
-        this.authorities = authorities;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
+    public Account(User user, BigDecimal balance) {
+        this.user = user;
+        this.balance = balance;
     }
 }
-
